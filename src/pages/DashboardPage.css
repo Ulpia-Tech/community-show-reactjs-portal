@@ -1,0 +1,59 @@
+body {
+    background-color: #e8f4ff!important;
+}
+
+.wrapper {
+    width   : 420px;
+    margin  : auto;
+    margin-top: 160px;
+}
+
+.box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.app-title    {
+    color       : #000;
+    font-weight : bold;
+    font-size   : 22px;
+}
+
+.button {
+    border          : solid #fff 2px;
+    cursor          : pointer;
+    border-radius   : 5px;
+    padding         : 6px 12px;
+}
+
+.button-active {
+    cursor          : pointer;
+    border          : solid #e8f4ff 2px;
+    border-radius   : 5px;
+    padding         : 6px 12px;
+}
+
+.flex-space-between {
+    justify-content: space-between;
+}
+
+.button--big {
+    background: #e8f4ff;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+
+
+.error {
+    color: #ff0000;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+.header-back {
+    border-bottom: solid #e8f4ff 2px;
+    padding-bottom: 16px;
+}

@@ -1,0 +1,75 @@
+.app-logo {
+    margin  : auto;
+    width   : 100px;
+    height  : 100px;
+  }
+  
+.app-title    {
+  color       : #000;
+  font-weight : bold;
+  font-size   : 22px;
+}
+
+.signin-wrapper {
+
+  margin        : 128px auto;
+  width         : 420px;
+}
+
+.signin-header {
+  text-align: center;
+}
+
+.signin-content {
+  margin-top    : 32px;
+  padding       : 32px;
+  background    : #FFFFFF;
+  border        : solid #dedede 1px;
+  box-shadow    : 1px 1px 10px #dedede;
+  border-radius : 6px;
+}
+
+.signin-metatext {
+  text-align  : center;
+  font-size   : 22px;
+  font-weight : bold;
+}
+
+.input-label {
+  display: block;
+}
+
+.input-text {
+  width         : 100%;
+  padding       : 8px;
+  border        : solid #dedede 1px;
+  border-radius : 6px;
+}
+
+.input-text--error {
+  width         : 100%;
+  padding       : 8px;
+  border        : solid #ff0000 1px;
+  border-radius : 6px;
+}
+
+.btn {
+  background    : #4b8ffa;
+  color         : #fff;
+  font-weight   : bold;
+  padding       : 8px;
+  border-radius : 6px;
+  text-align: center;
+}
+
+.btn--full {
+  width         : 100%;
+}
+
+
+.error-panel {
+
+  padding    : 8px;
+  background : #f99a9a;
+  font-weight: bold;
+}

@@ -1,0 +1,93 @@
+* {
+  padding       : 0;
+  margin        : 0;
+  border        : 0;
+	font-size     : 100%;
+	font          : inherit;
+	vertical-align: baseline;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  line-height           : 1.5;
+  -webkit-font-smoothing: antialiased;
+  background            : #f7f5f7!important;
+  font-family           : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+
+
+.mt5   { margin-top  : 5px;  }
+.mt6   { margin-top  : 6px;  }
+.mt7   { margin-top  : 7px;  }
+.mt8   { margin-top  : 8px;  }
+.mt9   { margin-top  : 9px;  }
+.mt10  { margin-top  : 10px; }
+.mt14  { margin-top  : 14px; }
+.mt16  { margin-top  : 16px; }
+.mt20  { margin-top  : 20px; }
+.mt25  { margin-top  : 25px; }
+.mt32  { margin-top  : 32px; }
+.mt64  { margin-top  : 64px; }
+
+.ml8   { margin-left : 8px;  }
+.ml16  { margin-left : 16px; }
+.ml32  { margin-left : 32px; }
+
+.mr5   { margin-right  : 5px;  }
+.mr6   { margin-right  : 6px;  }
+.mr7   { margin-right  : 7px;  }
+.mr8   { margin-right  : 8px;  }
+.mr9   { margin-right  : 9px;  }
+.mr10  { margin-right  : 10px; }
+.mr14  { margin-right  : 14px; }
+.mr16  { margin-right  : 16px; }
+.mr32  { margin-right  : 32px; }
+.mr64  { margin-right  : 64px; }
+
+.m-gap1 { margin-top: 8px; margin-bottom: 8px; }
+.m-gap2 { margin-top: 16px; margin-bottom: 16px; }
+
+
+.tac { text-align: center;  }
+.tal { text-align: left;    }
+.tar { text-align: right;   }
+
+
+
+.h1 { font-size: 20px; font-weight: bold; }
+.h2 { font-size: 18px; font-weight: bold; }
+.h3 { font-size: 16px; font-weight: bold; text-transform: uppercase; }
+.h4 { font-size: 14px; font-weight: bold; }
+
+
+.c-success   { color      : #28b02f; }
+.c-fail      { color      : #d60b52; }
+.c-blue      { color      : #2196f3; }
+.c-lightblue { color      : #bab7ff; }
+.c-orange    { color      : #fdc576; }
+.c-purple    { color      : #dca3b7; }
+.c-pink      { color      : #f99a9a; }
+
+.bc-success  { background : #28b02f; }
+.bc-fail     { background : #d60b52; }
+.bc-blue     { color      : #2196f3; }
+.bc-lightblue{ background : #bab7ff; }
+.bc-orange   { background : #fdc576; }
+.bc-purple   { background : #dca3b7; }
+.bc-pink     { background : #f99a9a; }
+
+.flex {
+  display: flex;
+}
+
+.bold {
+  font-weight: bold;
+}
