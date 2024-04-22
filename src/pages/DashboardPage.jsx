@@ -65,7 +65,6 @@ export const DashboardPage = () => {
         setUiState({...uiState, isSearchboxVisible: true })
     }
 
-
     /**
      * @author Mihail Petrov
      */

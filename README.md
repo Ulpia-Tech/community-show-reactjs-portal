@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# ReactJs community portal - custom validation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+If you are interested in how to integrate the Reltio API with custom validation service - this repository is 
+the right choise for you.
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+In the evolving landscape of veterinary medicine, the need for streamlined and personalized customer experiences has become paramount. Our veterinary medical center is at the forefront of this transformation, committed to delivering exceptional care to our patients while ensuring a seamless and efficient interaction with their owners.
 
-### `npm start`
+To achieve this, we are embarking on an exciting project to develop a custom customer portal tailored to the unique needs of our clientele. This portal will not only serve as a central hub for accessing pet health records, appointment scheduling, and communication with our veterinary team but will also incorporate advanced UI validation mechanisms to enhance data integrity and user experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To make this vision a reality, we will be integrating our customer portal with Reltio, a leading data management platform. This integration will allow us to securely access and validate pet records stored in Reltio's robust database, ensuring that our customers have accurate and up-to-date information at their fingertips.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In this code example, we will walk through the implementation of our custom customer portal, focusing specifically on the development of the UI validation features and the integration with Reltio. By following this example, you will gain insights into how to create a tailored customer portal that meets the unique requirements of a veterinary medical center, while leveraging the power of Reltio's data management capabilities.
 
-### `npm test`
+The customer portal consist of two components:
+- Login page
+- Dashboard - for customer and patient managment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies and building blocks
 
-### `npm run build`
+The application is build using **ReactJS** on the front-end and consist of two types of validation services:
+- Custom validation with regular expression and dictunary maps - whitch is primary used for validationg customer names
+- [Loqate validation service](https://www.loqate.com/en-gb/) - an external service for validating a sensitive infromation like E-mail adresses, phone numbers and phisical adresses. The services provide a complex multy level check and not only validate the pattern of the adress but actialy check if a record is available inside the databases of the service providers (especialy for Phones and E-mail adresses).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This demo is integrated with Ulpia Tech personal test Reltio account consisting of the folowing models:
+- Person
+- Customer
+- Patient
+- Medical record
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](2024-04-22-09-56-04.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you wish to integrate the code for your own perposes please provide a valid Reltio credentials and Loqate crendetials inside the **env** file.
 
-### `npm run eject`
+## Application flow
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The main flow of the application consist of the folowing steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Login page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The user is presented with a login page to the portal. In this case we are using a Reltio authentication in order to log in insed the  app.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![](2024-04-22-09-19-56.png)
 
-## Learn More
+If at any moment the credentials are incorectly typed the Reltio is going to notify us with a coresponding message. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dashboard page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The аьягфдьиа provide us with an ability to search and create a new user inside the system. 
 
-### Code Splitting
+![](2024-04-22-09-20-17.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+![](2024-04-22-09-20-51.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+![](2024-04-22-09-21-30.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![](2024-04-22-09-21-45.png)
 
-### Advanced Configuration
+![](2024-04-22-09-34-27.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![](2024-04-22-09-25-04.png)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusion
