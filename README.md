@@ -49,7 +49,7 @@ If at any moment the credentials are incorectly typed the Reltio is going to not
 
 The аьягфдьиа provide us with an ability to search and create a new user inside the system. 
 
-<img src="docs/2024-04-22-09-20-17.png" width="100" height="100">
+<img src="docs/2024-04-22-09-20-17.png" width="100%" height="100%">
 
 
 ![](docs/2024-04-22-09-20-51.png)
