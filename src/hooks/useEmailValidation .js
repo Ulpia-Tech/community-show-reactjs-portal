@@ -13,6 +13,7 @@ export const useEmailValidation = () => {
       const data        = await response.json();
 
       const result      = data.Items[0];
+      console.log(result);
       const isValid     = (result.ResponseCode === 'Valid');
 
       if(!isValid) {
@@ -38,7 +39,8 @@ export const useEmailValidation = () => {
       const data        = await response.json();
 
       const result      = data.Items[0];
-      const isValid     = (result.ResponseCode === 'Valid');
+      
+      const isValid     = (result.IsValid === 'Yes');
 
       if(!isValid) {
         throw new Error(result.ResponseMessage);
@@ -50,5 +52,26 @@ export const useEmailValidation = () => {
     }
   };
 
-  return { checkEmailValidity, checkPhoneValidity };
+  /**
+   * @author Mihail Petrov
+   * @param {*} input 
+   */
+  const checkNameValidity = (input) => {
+
+    const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+    const isValid     = regex.test(input);
+
+    console.log(isValid)
+
+    if(isValid) {
+      return { isValid : true, message : '' }  
+    }
+
+    return { isValid : false, message : 'Invalid name' }
+  };
+
+  return { checkEmailValidity, checkPhoneValidity, checkNameValidity };
 };
+
+
+

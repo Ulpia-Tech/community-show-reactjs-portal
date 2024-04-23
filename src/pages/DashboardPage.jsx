@@ -14,6 +14,8 @@ export const DashboardPage = () => {
     const [customerCollection, setCustomerCollection]   = useState();
     const [uiState, setUiState]                         = useState({
         isSearchboxVisible      : true,
+        isNameValid             : true,
+        isLastNameValid         : true,
         isEmailValid            : true,
         isPhoneValid            : true,
         isFormInUpdateState     : false,
@@ -23,7 +25,7 @@ export const DashboardPage = () => {
     const [activeEntity, setActiveEntity]               = useState();
     const { createNewCustomer, searchForCustomer   }    = useCustomerApi();
 
-    const { checkEmailValidity, checkPhoneValidity } = useEmailValidation();
+    const { checkEmailValidity, checkPhoneValidity, checkNameValidity }    = useEmailValidation();
 
     /**
      * @author Mihail Petrov
@@ -134,8 +136,17 @@ export const DashboardPage = () => {
      */
     const handleValidation = async (e) => {
 
-        console.log("validation");
         const { name, value } = e.target;
+
+        if(name === 'FirstName') {
+            const result = checkNameValidity(value);
+            setUiState({...uiState, isNameValid: result.isValid})
+        }
+
+        if(name === 'LastName') {
+            const result = checkNameValidity(value);
+            setUiState({...uiState, isLastNameValid: result.isValid})
+        }        
 
         if(name === 'Email') {
 
@@ -146,6 +157,7 @@ export const DashboardPage = () => {
         if(name === 'Phone') {
 
             const result =  await checkPhoneValidity(value);
+            console.log(result.isValid);
             setUiState({...uiState, isPhoneValid: result.isValid})
         }
     }
@@ -199,7 +211,13 @@ export const DashboardPage = () => {
                                     name="FirstName"
                                     value={activeEntity?.FirstName}
                                     onChange={ handleChange }
+                                    onBlur   = { handleValidation }
                                     type="text"/>
+
+                                <IF condition={ !uiState.isNameValid }>
+                                    <div className="error">Name is NOT valid</div>
+                                </IF>
+
                             </div>
                             
                             <div>
@@ -210,7 +228,12 @@ export const DashboardPage = () => {
                                     name="LastName"
                                     value={activeEntity?.LastName} 
                                     onChange={ handleChange }
+                                    onBlur   = { handleValidation }
                                     type="text"/>
+
+                                <IF condition={ !uiState.isLastNameValid }>
+                                    <div className="error">Name is NOT valid</div>
+                                </IF>                                    
                             </div>
                         </div>
                     </div>
