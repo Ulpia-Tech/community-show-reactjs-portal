@@ -45,14 +45,13 @@ The user is presented with a login page to the portal. In this case we are using
 
 If at any moment the credentials are incorectly typed the Reltio is going to notify us with a coresponding message. 
 
+<img src="docs/2024-04-22-09-20-17.png" width="100%" height="100%">
+
 ### Dashboard page
 
 The Dashboard provide us with an ability to search and create a new user inside the system. 
 
-<img src="docs/2024-04-22-09-20-17.png" width="100%" height="100%">
-
 <img src="docs/2024-04-22-09-20-51.png" width="100%" height="100%">
-
 
 <img src="docs/2024-04-22-09-21-30.png" width="100%" height="100%">
 
