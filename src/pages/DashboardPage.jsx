@@ -15,7 +15,9 @@ export const DashboardPage = () => {
     const [uiState, setUiState]                         = useState({
         isSearchboxVisible      : true,
         isEmailValid            : true,
-        isPhoneValid            : true
+        isPhoneValid            : true,
+        isFormInUpdateState     : false,
+        isFormInCreateState     : false
     });
 
     const [activeEntity, setActiveEntity]               = useState();
@@ -25,19 +27,50 @@ export const DashboardPage = () => {
 
     /**
      * @author Mihail Petrov
-     * @param {*} operationId 
      */
-    const handleSearchOperation = (operationId) => {
-        setSearchBy(operationId);
+    const handleSelectCustomer = (selectEntity) => {
+
+        setActiveEntity(selectEntity);
+        setUiState({...uiState, 
+            isSearchboxVisible  : false ,
+            isFormInCreateState : false ,
+            isFormInUpdateState : true
+        });
     };
 
     /**
      * @author Mihail Petrov
      */
-    const handleSelectCustomer = (selectEntity) => {
+    const handleBackToSearch = () => {
 
-        setActiveEntity(selectEntity);
-        setUiState({...uiState, isSearchboxVisible: false })
+        setCustomerCollection(null);
+        setActiveEntity(null);
+        setUiState({...uiState, 
+            isSearchboxVisible  : true  ,
+            isFormInCreateState : false ,
+            isFormInUpdateState : false
+        });
+    }
+
+    /**
+     * @author Mihail Petrov
+     */
+    const loadCreateNewRecord = () => {
+
+        setActiveEntity({});
+        setUiState({...uiState, 
+            isSearchboxVisible  : false ,
+            isFormInCreateState : true  ,
+            isFormInUpdateState : false
+        });
+    };    
+
+    /**
+     * @author Mihail Petrov
+     * @param {*} operationId 
+     */
+    const handleSearchOperation = (operationId) => {
+        setSearchBy(operationId);
     };
 
     /**
@@ -58,12 +91,6 @@ export const DashboardPage = () => {
         }));
     };
 
-    const handleBackToSearch = () => {
-
-        setCustomerCollection(null);
-        setActiveEntity(null);
-        setUiState({...uiState, isSearchboxVisible: true })
-    }
 
     /**
      * @author Mihail Petrov
@@ -144,7 +171,15 @@ export const DashboardPage = () => {
 
                     <div>
                         {customerCollection}
-                    </div>                    
+                    </div>  
+
+                    <IF condition={customerCollection?.length === 0}>
+                        <div className="mt16">
+                            <div onClick={ loadCreateNewRecord } className="button--big--orange">
+                                Add new customer
+                            </div>
+                        </div>
+                    </IF>
                 </IF>
 
                 <IF condition={activeEntity}>
@@ -217,10 +252,17 @@ export const DashboardPage = () => {
                         </IF>
                             
                     </div>                
-
+                    
                     <div className="mt16">
-                        <div onClick={ processEntityUpdate } className="button--big">Update</div>
-                    </div>    
+
+                        <IF condition={ uiState.isFormInUpdateState === true }>
+                            <div onClick={ processEntityUpdate } className="button--big">Update</div>
+                        </IF>
+
+                        <IF condition={ uiState.isFormInCreateState === true }>
+                            <div onClick={ processEntityUpdate } className="button--big--orange">Create</div>
+                        </IF>                        
+                    </div>
                 </IF>
 
             </div>

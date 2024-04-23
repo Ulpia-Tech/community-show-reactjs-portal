@@ -29,7 +29,7 @@ This demo is integrated with Ulpia Tech personal test Reltio account consisting 
 - Patient
 - Medical record
 
-![](2024-04-22-09-56-04.png)
+![](docs/2024-04-22-09-56-04.png)
 
 If you wish to integrate the code for your own perposes please provide a valid Reltio credentials and Loqate crendetials inside the **env** file.
 
@@ -41,7 +41,7 @@ The main flow of the application consist of the folowing steps:
 
 The user is presented with a login page to the portal. In this case we are using a Reltio authentication in order to log in insed the  app.
 
-![](2024-04-22-09-19-56.png)
+![](docs/2024-04-22-09-19-56.png)
 
 If at any moment the credentials are incorectly typed the Reltio is going to notify us with a coresponding message. 
 
@@ -49,19 +49,19 @@ If at any moment the credentials are incorectly typed the Reltio is going to not
 
 The аьягфдьиа provide us with an ability to search and create a new user inside the system. 
 
-![](2024-04-22-09-20-17.png)
+![](docs/2024-04-22-09-20-17.png)
 
 
-![](2024-04-22-09-20-51.png)
+![](docs/2024-04-22-09-20-51.png)
 
 
-![](2024-04-22-09-21-30.png)
+![](docs/2024-04-22-09-21-30.png)
 
-![](2024-04-22-09-21-45.png)
+![](docs/2024-04-22-09-21-45.png)
 
-![](2024-04-22-09-34-27.png)
+![](docs/2024-04-22-09-34-27.png)
 
-![](2024-04-22-09-25-04.png)
+![](docs/2024-04-22-09-25-04.png)
 
 
 ## Conclusion
