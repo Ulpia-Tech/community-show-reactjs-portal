@@ -1,4 +1,4 @@
-export const useEmailValidation = () => {
+export const useValidation = () => {
 
   /**
    * @author MIhail Petrov
@@ -72,6 +72,3 @@ export const useEmailValidation = () => {
 
   return { checkEmailValidity, checkPhoneValidity, checkNameValidity };
 };
-
-
-

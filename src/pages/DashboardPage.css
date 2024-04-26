@@ -68,6 +68,20 @@ body {
     padding-bottom  : 16px;
 }
 
+.input-icon--error     {
+    position    : absolute;
+    top         : 35px;
+    right       : 16px;
+    color       : #ff0000;
+}
+
+.input-icon--success     {
+    position    : absolute;
+    top         : 35px;
+    right       : 16px;
+    color       : #00ff00;
+}
+
 /* HTML: <div class="loader"></div> */
 .loader {
     width: 40px;

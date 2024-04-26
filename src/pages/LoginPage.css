@@ -53,6 +53,13 @@
   border-radius : 6px;
 }
 
+.input-text--success {
+  width         : 100%;
+  padding       : 8px;
+  border        : solid #00ff00 1px;
+  border-radius : 6px;
+}
+
 .btn {
   background    : #4b8ffa;
   color         : #fff;

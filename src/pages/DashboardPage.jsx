@@ -6,7 +6,10 @@ import "./DashboardPage.css"
 import { useState } from "react";
 import { EmailInput } from "../components/inputs/EmailInput";
 
-import { useEmailValidation } from '../hooks/useEmailValidation '; 
+import { useValidation } from '../hooks/useValidation '; 
+
+import { ImCross  } from "react-icons/im";
+import { FaCheck } from "react-icons/fa";
 
 export const DashboardPage = () => {
 
@@ -25,7 +28,7 @@ export const DashboardPage = () => {
     const [activeEntity, setActiveEntity]               = useState();
     const { createNewCustomer, searchForCustomer   }    = useCustomerApi();
 
-    const { checkEmailValidity, checkPhoneValidity, checkNameValidity }    = useEmailValidation();
+    const { checkEmailValidity, checkPhoneValidity, checkNameValidity }    = useValidation();
 
     /**
      * @author Mihail Petrov
@@ -162,6 +165,18 @@ export const DashboardPage = () => {
         }
     }
 
+    /**
+     * 
+     * @param {*} inputId 
+     * @returns 
+     */
+    const getInputClass = (inputId) => {
+
+        if(inputId === null  ) return `input-text`;
+        if(inputId === true  ) return `input-text--success`;
+        if(inputId === false ) return `input-text--error`;
+    }
+
     return <>
         <div className="wrapper">
 
@@ -170,8 +185,8 @@ export const DashboardPage = () => {
 
                 <IF condition = {uiState.isSearchboxVisible}>
                     <div className="flex flex-space-between">
-                        <div className={searchBy === 'customer' ? 'button-active'   : 'button'} onClick={ () => handleSearchOperation('customer') }>Search by Customer</div>
-                        <div className={searchBy === 'patient'  ? 'button-active'    : 'button'}  onClick={ () => handleSearchOperation('patient')  }>Search by Patient</div>
+                        <div className={searchBy === 'customer' ? 'button-active': 'button'} onClick={ () => handleSearchOperation('customer') }>Search by Customer</div>
+                        <div className={searchBy === 'patient'  ? 'button-active': 'button'} onClick={ () => handleSearchOperation('patient')  }>Search by Patient</div>
                     </div>
 
                     <input
@@ -226,8 +241,8 @@ export const DashboardPage = () => {
                                     className="input-text mt8" 
                                     id="password" 
                                     name="LastName"
-                                    value={activeEntity?.LastName} 
-                                    onChange={ handleChange }
+                                    value = {activeEntity?.LastName} 
+                                    onChange = { handleChange }
                                     onBlur   = { handleValidation }
                                     type="text"/>
 
@@ -238,16 +253,28 @@ export const DashboardPage = () => {
                         </div>
                     </div>
 
-                    <div className="mt16">
+                    <div className="mt16" style={{position: 'relative'}}>
                         <label className="input-label mt16" htmlFor="email">Phone</label>
                         <input
-                            className={!uiState.isPhoneValid ? 'input-text--error mt8' : 'input-text mt8' }
+                            className={getInputClass(uiState.isPhoneValid)}
                             id="email" 
                             name="Phone"
                             value={activeEntity?.Phone} 
                             onChange={ handleChange }
                             onBlur   = { handleValidation }
                             type="text"/>
+
+                        <IF condition={ !uiState.isPhoneValid }>
+                            <div className="input-icon--error">
+                                <ImCross></ImCross>
+                            </div>
+                        </IF>
+
+                        <IF condition={ uiState.isPhoneValid }>
+                            <div className="input-icon--success">
+                                <FaCheck></FaCheck>
+                            </div>
+                        </IF>
 
                         <IF condition={ !uiState.isPhoneValid }>
                             <div className="error">Phone is NOT valid</div>
@@ -259,16 +286,28 @@ export const DashboardPage = () => {
                         value={activeEntity?.Email}
                         onChange={ testMest }>
                     </EmailInput> */}
-                    <div className="mt16">
+                    <div className="mt16" style={{position: 'relative'}}>
                         <label className="input-label mt16" htmlFor="email">E-mail</label>
                         <input 
-                            className={!uiState.isEmailValid ? 'input-text--error mt8' : 'input-text mt8' }
+                            className={getInputClass(uiState.isEmailValid)}
                             id="email" 
                             name="Email"
                             value={activeEntity?.Email} 
                             onChange = { handleChange }
                             onBlur   = { handleValidation }
                             type="text"/>
+
+                        <IF condition={ !uiState.isEmailValid }>
+                            <div className="input-icon--error">
+                                <ImCross></ImCross>
+                            </div>
+                        </IF>
+
+                        <IF condition={ uiState.isEmailValid }>
+                            <div className="input-icon--success">
+                                <FaCheck></FaCheck>
+                            </div>
+                        </IF>
 
                         <IF condition={ !uiState.isEmailValid }>
                             <div className="error">E-mail is NOT valid</div>
